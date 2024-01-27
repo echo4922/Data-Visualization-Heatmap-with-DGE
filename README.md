@@ -3,7 +3,8 @@
 A heatmap is a type of data visualization where the magnitude of values is represented by colors and needs a minimum of two objects to display (Source: Techtarget.com). Because the DGE analysis was performed with the standard approach and the compositional approach, the heatmap is the ideal choice of data visualizations to compare and contrast log fold changes of DGEs where the log fold changes are represented by colors. A total of four R programming libraries were needed for the DGE analysis . To perform the DGE analysis, 13 genes related to the cGAS-STING signaling pathway were first handpicked from DESeq2. The cGAS-STING pathway emerged as a potential mediator of inflammation in the context of infection, cell stress, and tissue damage (Source: original paper by Decout et al). In addition, the pathway may play a role in inflammation for age-related diseases (Source: originla paper by Zheng et al). To perform the DGE analysis on ALDEx2, the raw features of 13 genes were needed. Once ALDEx2 yielded differentially expressed genes with log fold changes, the log fold changes of 13 genes were extracted from the DESeq2 and the ALDEx2 then a new CSV file was created. In the CSV file for creating the heatmap, a first column designates names of 13 genes with base 2 log fold changes of DESeq2 on a second column and base 2 log fold changes of ALDEx2 on a third column.
 
 
-The figure below is the heatmap:
+The figure below is the heatmap:  <br />
+ <br />
 ![Heatmap](https://github.com/echo4922/Data-Visualization-Heatmap-with-DGE/assets/112420424/eee728d6-093f-466d-a781-9fc397137ce2) <br />
 
 
