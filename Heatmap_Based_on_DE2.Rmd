@@ -1,0 +1,56 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+#load necessary libraries
+```{r setup, message = TRUE}
+library("ggplot2")
+library("ComplexHeatmap")
+library("heatmaply")
+library("pheatmap")
+
+print("DONE. Package(s) of library loaded")
+```
+
+#remove list and obtain currnt working directory
+```{r}
+rm(list = ls())
+getwd()
+```
+
+
+
+
+#Load data
+```{r}
+df_updated <- read.csv("cGAS_14_Lists_2LFC_08_31_23.csv")
+
+df_updated <- as.matrix(df_updated[,-1])
+
+rownames(df_updated) <- df_updated[,1]
+
+class(df_updated)
+
+typeof(df_updated)
+```
+
+#create heatmap then save
+```{r, fig.width= 7.5}
+df_updated_FC_Flipped <- read.csv("Flipped_DESEQ_14_Lists_LFC_08_02_23.csv")
+
+df_updated_FC_Flipped <- as.matrix(df_updated_FC_Flipped[,-1])
+
+rownames(df_updated_FC_Flipped) <- df_updated_FC_Flipped[,1]
+
+class(df_updated_FC_Flipped)
+
+typeof(df_updated_FC_Flipped)
+
+heatmap_figure <- pheatmap(df_updated_FC_Flipped, display_numbers = TRUE, number_color = "black", fontsize_number = 12, labels_row = c("CG13641","Sting","CG33926","DptB","ref(2)P","CG3165","Rel","IKKepsilon","CG42825","cGlr1","Atg8a","IKKbeta","aub","cGlr2"), color=colorRampPalette(c("blue1","white","red"))(50))
+
+png(file="heatmap_figure_08_02_2023.png", width = 600, height = 600)
+heatmap_figure
+dev.off()
+```
+
